@@ -1,0 +1,9 @@
+DROP TABLE Checkin;
+DROP TABLE Review;
+DROP TABLE Yelp_User;
+DROP TABLE Business_Attribute;
+DROP TABLE Business_Category;
+DROP TABLE Business_Hours;
+DROP TABLE Category_Relation;
+DROP TABLE Category;
+DROP TABLE Business;
