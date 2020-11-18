@@ -38,7 +38,7 @@ public class CategoryQuerier extends JDBCDAO {
         String sql = "SELECT DISTINCT(SC.Name) FROM Category_Relation R JOIN Category SC ON R.Sub_Cid = SC.Cid JOIN Category MC ON R.Main_Cid = MC.Cid GROUP BY SC.Name HAVING SUM(CASE WHEN MC.Name IN ("
                 + String.join(", ", params) + ") THEN 1 END)"
                 + (searchFor == SearchFor.AND ? (" = " + Integer.toString(mainNames.size())) : " > 0")
-                + "ORDER BY SC.Name ASC";
+                + " ORDER BY SC.Name ASC";
 
         List<String> names = new ArrayList<>();
         try (PreparedStatement statement = conn.prepareStatement(sql)) {
