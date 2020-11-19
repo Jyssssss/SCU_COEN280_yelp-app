@@ -231,6 +231,6 @@ public class BusinessQuerier extends JDBCDAO {
                 + "FROM ( SELECT Business_Uid FROM Business WHERE Bid IN (" + innerSql
                 + ") ) B5 LEFT JOIN Review R ON B5.Business_Uid = R.Business_Uid GROUP BY B5.Business_Uid ) BR "
                 + "LEFT JOIN Checkin C ON BR.Business_Uid = C.Business_Uid GROUP BY BR.Business_Uid, Reviews ) BRC "
-                + "JOIN Business B ON BRC.Business_Uid = B.Business_Uid ORDER BY Name";
+                + "LEFT JOIN Business B ON BRC.Business_Uid = B.Business_Uid ORDER BY Name";
     }
 }

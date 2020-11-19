@@ -20,8 +20,8 @@ public class ReviewQuerier extends JDBCDAO {
             return List.of();
 
         String sql = "SELECT Stars, Review_Date, Funny_Votes, Cool_Votes, Useful_Votes, Text, Name "
-                + "FROM Review R JOIN Yelp_user U ON R.User_Uid = U.User_Uid WHERE Business_Uid = ? ORDER BY Review_Date DESC";
-
+                + "FROM Review R LEFT JOIN Yelp_user U ON R.User_Uid = U.User_Uid WHERE Business_Uid = ? ORDER BY Review_Date DESC";
+        
         List<ReviewResult> results = new ArrayList<>();
         try (PreparedStatement statement = conn.prepareStatement(sql)) {
             statement.setString(1, businessUid);
