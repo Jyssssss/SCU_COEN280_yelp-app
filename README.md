@@ -20,20 +20,16 @@ You need to have the following software installed and data downloaded:
 
 2. Connect to the database and execute createdb.sql to generate tables.
 
-3. Build Maven project
+3. Build Maven project. The command will generate .jar files in the target file.
 
 ```sh
 ./mvnw clean install
 ```
 
-The command will generate .jar files in the target file.
-
-4. Populate dataset. Go to the target file and execute the following command.
+4. Populate dataset. Go to the target file and execute the following command. The arguments are the dataset json files.
 
 ```sh
 java -jar populate.jar yelp_business.json yelp_review.json yelp_checkin.json yelp_user.json
 ```
-
-The arguments are the dataset json files.
 
 5. Execute application.jar to start your search!
